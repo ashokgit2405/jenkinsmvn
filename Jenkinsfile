@@ -25,6 +25,15 @@ pipeline {
                     junit 'hello-app/target/surefire-reports/*.xml'
                 }
             }
+        stage('upload') {
+           steps {
+              script { 
+                 def server = Artifactory.server 'jfrgo-demo'
+                 def uploadSpec = """{
+                 }"""
+
+                 server.upload(uploadSpec) 
+               }
         }
     }
 }
