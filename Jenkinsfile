@@ -24,23 +24,23 @@ pipeline {
                 always {
                     junit 'hello-app/target/surefire-reports/*.xml'
                 }
-        def server = Artifactory.server "jfrog-demo"
+                def server = Artifactory.server "jfrog-demo"
 
-        def uploadSpec =
-               ...{
-                "files": [
-                        {
-                          "pattern": "target/*.jar",
-                          "target": "default-maven-local"
-                      }
-                   ]
-                }...
-        def buildInfo2 =serv.upload spec: uploadSpec
+                def uploadSpec =
+                       ...{
+                        "files": [
+                                {
+                                     "pattern": "target/*.jar",
+                                     "target": "default-maven-local"
+                                 }
+                           ]
+                        }...
+                def buildInfo2 =serv.upload spec: uploadSpec
 
-        server.publishBuildInfo buildInfo2
-      }
-    } 
-  }
+                server.publishBuildInfo buildInfo2
+                     }
+                    } 
+                 }
                     
             }
         }
