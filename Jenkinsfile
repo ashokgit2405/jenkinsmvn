@@ -17,7 +17,6 @@ pipeline {
             }
         }
       stage ('upload') {
-      jenkinsCommitStatus("upload") {
       def server = Artifactory.server "jfrog-demo"
       def buildInfo = Artifactory.newBuildInfo()
       buildInfo.env.capture = true
@@ -54,5 +53,4 @@ pipeline {
             }
         }
     }
- }
 }
