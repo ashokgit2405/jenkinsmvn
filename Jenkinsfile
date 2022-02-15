@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         }
-      stages {  
+    stages {  
       stage ('upload') {
       def server = Artifactory.server "jfrog-demo"
       def buildInfo = Artifactory.newBuildInfo()
