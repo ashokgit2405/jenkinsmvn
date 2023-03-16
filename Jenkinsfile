@@ -16,7 +16,7 @@ pipeline {
                 }
             }
         }
-    stages {  
+  /* stages {  
       stage ('upload') {
       def server = Artifactory.server "jfrog-demo"
       def buildInfo = Artifactory.newBuildInfo()
@@ -36,7 +36,7 @@ pipeline {
             "target": "libs-snapshot-local"
           }
         ]
-      }"""
+      }""" */
       // Upload to Artifactory.
       server.upload spec: uploadSpec, buildInfo: buildInfo
 
